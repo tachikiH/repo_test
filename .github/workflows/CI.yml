@@ -11,7 +11,7 @@ jobs:
   test:
     env:
       SQLITE_VERSION : "3420000"
-      SQLITE_YEAR: "23"
+      SQLITE_YEAR: "2023"
     strategy:
       fail-fast: false
       matrix:
