@@ -1,16 +1,17 @@
-name: CI_prev
+name: SQLite FDW test
 
 on:
   workflow_dispatch:
   pull_request:  
-  push:
-    branches:
-      - master
-      - main
+  #push:
+    #branches:
+      #- master
+      #- main
 jobs:
   test:
     env:
       SQLITE_VERSION : "3420000"
+      SQLITE_YEAR: "23"
     strategy:
       fail-fast: false
       matrix:
@@ -24,11 +25,11 @@ jobs:
       - name: install locales
         run: bash install_locales.sh
       
-      - name: download and build PostgreSQL ${{ matrix.pg }}
-        run: bash download_build_postgres.sh ${{ matrix.pg }}
+      - name: build PostgreSQL ${{ matrix.pg }}
+        run: bash build_postgres.sh ${{ matrix.pg }}
       
       - name: install SQLite
-        run: bash install_sqlite.sh ${{ env.SQLITE_VERSION }}
+        run: bash install_sqlite.sh ${{ env.SQLITE_VERSION }} ${{ env.SQLITE_YEAR }}
       
       - name: build sqlite_fdw
         run: bash build_sqlite_fdw.sh ${{ matrix.pg }}
