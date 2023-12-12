@@ -38,7 +38,4 @@ jobs:
         run: bash execute_test.sh ${{ matrix.pg }}
 
       - name: check test results
-        run: |
-          if: !${{ endsWith(cat make_check.out, '# All 20 tests passed.') }}; then
-            exit 1
-          fi
+        run: bash check.sh
