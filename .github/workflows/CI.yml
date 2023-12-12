@@ -39,6 +39,6 @@ jobs:
 
       - name: check test results
         run: |
-          if: !${{ endsWith(run: cat make_check.out, '# All 20 tests passed.') }}; then
+          if: !${{ endsWith(cat make_check.out, '# All 20 tests passed.') }}; then
             exit 1
           fi
