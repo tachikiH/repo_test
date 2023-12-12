@@ -35,7 +35,6 @@ jobs:
         run: bash build_sqlite_fdw.sh ${{ matrix.pg }}
       
       - name: execute sqlite_fdw test
-        run: bash execute_test.sh ${{ matrix.pg }}
-
-      - name: check test results
-        run: bash check.sh
+        run: | 
+          bash execute_test.sh ${{ matrix.pg }}
+          bash check.sh
