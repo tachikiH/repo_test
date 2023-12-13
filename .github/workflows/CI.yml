@@ -22,8 +22,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-#      - name: install locales
-#        run: bash install_locales.sh
+      - name: install locales
+        run: bash install_locales.sh
       
       - name: build PostgreSQL ${{ matrix.pg }}
         run: bash build_postgres.sh ${{ matrix.pg }}
