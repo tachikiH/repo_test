@@ -1,4 +1,15 @@
 #!/bin/bash
+#ファイルの概要
+#test.shを実行しリグレッションテストを行い、全て合格していたら正常終了し、全て合格でなければ異常終了する
+
+#使い方
+#引数として、postgresqlのバージョン番号を指定するex. 16.0 など
+
+#前提条件として、
+#前段階として、postgresqlのビルドと、sqliteのインストール、sqlite_fdwのビルドが必要
+#sqlite_fdwが提供するtest.shスクリプト内の処理が以下のようになっていなければいけない
+#テストが全部成功したとき、"ALL 20 tests passed"という文字列をmake_check.outというファイルの末尾の行か、末尾から数えて3行目に出力する
+
 VERSION=$1
 cd ~/workdir/postgresql-${VERSION}/contrib/sqlite_fdw
 ./test.sh
