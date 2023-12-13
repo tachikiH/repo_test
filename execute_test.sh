@@ -14,5 +14,7 @@ elif [[ "$third_line_from_the_last" == *$string_test_passed* ]]; then
         echo "The third line from the last of make_check.out contains '$string_test_passed'"
 else
         echo "Error : not All the tests passed"
+        echo "last line : '$last_line'"
+        echo "thierd_line_from_the_last : '$third_line_from_the_last'"
         exit 1
 fi
